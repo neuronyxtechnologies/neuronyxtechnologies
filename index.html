@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuronyx Technologies - AI & Software Development</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom Styles for the Apple-inspired look and feel */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #F5F5F7;
+            overflow-x: hidden;
+        }
+
+        /* Translucent Glassmorphism Effect */
+        .glass-effect {
+            background: rgba(29, 29, 31, 0.6);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Gradient Text Effect */
+        .gradient-text {
+            background: linear-gradient(90deg, #4F85E3, #FFFFFF, #4F85E3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            animation: gradient-flow 5s ease-in-out infinite;
+        }
+        
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Subtle Animations on Scroll */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Hero background with animated gradient */
+        .hero-bg {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(29, 78, 216, 0.15) 0%, rgba(0,0,0,0) 50%);
+            transform: translate(-50%, -50%);
+            animation: pulse-glow 10s infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes pulse-glow {
+            from {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.7;
+            }
+            to {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1d1d1f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4F85E3;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3b76db;
+        }
+
+        /* CSS Filter to make the logo white */
+        .logo-white {
+            filter: invert(1);
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-effect">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-4">
+                <img src="logo.svg" alt="Neuronyx Technologies Logo" class="h-12 w-auto logo-white">
+                <span class="text-2xl font-bold text-white hidden sm:inline">Neuronyx Technologies</span>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#services" class="text-gray-300 hover:text-white transition-colors duration-300">Services</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a>
+                <a href="#portfolio" class="text-gray-300 hover:text-white transition-colors duration-300">Work</a>
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2 rounded-full transition-transform duration-300 ease-in-out transform hover:scale-105">Contact Us</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+             <a href="#services" class="block text-center py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Services</a>
+             <a href="#about" class="block text-center py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">About</a>
+             <a href="#portfolio" class="block text-center py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Work</a>
+             <a href="#contact" class="block text-center py-2 px-4 text-sm text-gray-300 hover:bg-gray-700">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg h-screen flex items-center justify-center text-center pt-20 relative">
+            <div class="container mx-auto px-6 relative z-10">
+                <h1 class="text-4xl md:text-7xl font-extrabold text-white leading-tight mb-4 fade-in-up">
+                    Engineering the Future with <span class="gradient-text">Intelligent Solutions</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 fade-in-up" style="transition-delay: 0.2s;">
+                    Neuronyx Technologies crafts bespoke web, mobile, and AI-powered applications that drive innovation and accelerate growth.
+                </p>
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 ease-in-out transform hover:scale-105 inline-block fade-in-up" style="transition-delay: 0.4s;">
+                    Start a Project
+                </a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white fade-in-up">Our Expertise</h2>
+                    <p class="text-lg text-gray-400 mt-2 fade-in-up" style="transition-delay: 0.1s;">Innovating across the digital spectrum.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <div class="glass-effect p-8 rounded-3xl text-center fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="mb-4 inline-block p-4 bg-gray-800 rounded-2xl">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Web & App Development</h3>
+                        <p class="text-gray-400">Creating responsive, high-performance websites and mobile applications for iOS and Android that offer seamless user experiences.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="glass-effect p-8 rounded-3xl text-center fade-in-up" style="transition-delay: 0.3s;">
+                        <div class="mb-4 inline-block p-4 bg-gray-800 rounded-2xl">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">AI Technology</h3>
+                        <p class="text-gray-400">Developing custom AI models, machine learning algorithms, and data-driven solutions to automate processes and unlock insights.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="glass-effect p-8 rounded-3xl text-center fade-in-up" style="transition-delay: 0.4s;">
+                        <div class="mb-4 inline-block p-4 bg-gray-800 rounded-2xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m12 0a2 2 0 100-4m0 4a2 2 0 110-4M6 12a2 2 0 100-4m0 4a2 2 0 110-4m12 0a2 2 0 100-4m0 4a2 2 0 110-4M6 12a2 2 0 100-4m0 4a2 2 0 110-4m12 0a2 2 0 100-4m0 4a2 2 0 110-4" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">IT & Cloud Services</h3>
+                        <p class="text-gray-400">Providing robust IT infrastructure support, cloud migration, and managed services to ensure your systems are secure and efficient.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-black">
+            <div class="container mx-auto px-6">
+                 <div class="lg:flex lg:items-center">
+                    <div class="lg:w-1/2">
+                        <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 fade-in-up">The minds behind the magic.</h2>
+                        <p class="text-lg text-gray-400 mb-6 fade-in-up" style="transition-delay: 0.2s;">Neuronyx Technologies was founded on the principle of using technology to solve complex problems. We are a collective of passionate developers, designers, and AI specialists dedicated to pushing the boundaries of what's possible and delivering exceptional value to our clients.</p>
+                        <p class="text-lg text-gray-400 fade-in-up" style="transition-delay: 0.3s;">Our approach is collaborative and transparent, ensuring we build not just software, but lasting partnerships.</p>
+                    </div>
+                    <div class="lg:w-1/2 mt-10 lg:mt-0 flex justify-center fade-in-up" style="transition-delay: 0.4s;">
+                        <img src="https://placehold.co/500x500/000000/4F85E3?text=NX" alt="Neuronyx Team Abstract" class="rounded-3xl shadow-2xl" onerror="this.onerror=null;this.src='https://placehold.co/500x500/000000/FFFFFF?text=Image+Error';">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white fade-in-up">Our Recent Work</h2>
+                    <p class="text-lg text-gray-400 mt-2 fade-in-up" style="transition-delay: 0.1s;">Solutions we've proudly delivered.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Portfolio Item 1 -->
+                    <div class="bg-gray-900 rounded-3xl overflow-hidden group fade-in-up" style="transition-delay: 0.2s;">
+                        <img src="https://placehold.co/600x400/111827/4F85E3?text=Project+Alpha" alt="Project Alpha" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://placehold.co/600x400/111827/FFFFFF?text=Image+Error';">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white">AI-Powered Analytics Platform</h3>
+                            <p class="text-gray-400 mt-2">A custom machine learning solution for a fintech startup to predict market trends.</p>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 2 -->
+                    <div class="bg-gray-900 rounded-3xl overflow-hidden group fade-in-up" style="transition-delay: 0.3s;">
+                        <img src="https://placehold.co/600x400/111827/4F85E3?text=Project+Beta" alt="Project Beta" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='https://placehold.co/600x400/111827/FFFFFF?text=Image+Error';">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-white">E-commerce Mobile App</h3>
+                            <p class="text-gray-400 mt-2">A cross-platform mobile app for a retail brand, featuring a seamless checkout experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white fade-in-up">Have an idea? Let's build it.</h2>
+                    <p class="text-lg text-gray-400 mt-2 fade-in-up" style="transition-delay: 0.1s;">We're here to help you turn your vision into reality.</p>
+                </div>
+                <div class="max-w-2xl mx-auto glass-effect rounded-3xl p-8 fade-in-up" style="transition-delay: 0.2s;">
+                    <form action="https://formspree.io/f/mrbknbnp" method="POST">
+                        <div class="mb-5">
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-300">Full Name</label>
+                            <input type="text" id="name" name="name" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="John Doe" required>
+                        </div>
+                        <div class="mb-5">
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Your Email</label>
+                            <input type="email" id="email" name="email" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="john.doe@company.com" required>
+                        </div>
+                        <div class="mb-5">
+                            <label for="message" class="block mb-2 text-sm font-medium text-gray-300">Your Message</label>
+                            <textarea id="message" name="message" rows="4" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tell us about your project..." required></textarea>
+                        </div>
+                        <button type="submit" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-full text-sm w-full sm:w-auto px-8 py-3 text-center transition-transform duration-300 ease-in-out transform hover:scale-105">Send</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col items-center text-center">
+                <a href="#" class="flex items-center space-x-4 mb-4">
+                    <img src="logo.svg" alt="Neuronyx Technologies Logo" class="h-12 w-auto logo-white">
+                    <span class="text-2xl font-bold text-white">Neuronyx Technologies</span>
+                </a>
+                <div class="flex space-x-6 mt-4 mb-4">
+                    <a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a>
+                    <a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a>
+                    <a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">Work</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                </div>
+                <p class="text-sm text-gray-500">© 2025 Neuronyx Technologies LLP. All Rights Reserved.</p>
+                 <p class="text-xs text-gray-600 mt-1">LLPIN: [Your LLPIN Here] | Registered Office: [Your Address Here]</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // JavaScript for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const fadeUpElements = document.querySelectorAll('.fade-in-up');
+        fadeUpElements.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
